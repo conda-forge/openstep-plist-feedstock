@@ -11,15 +11,17 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cython
   host:
     - pip
     - python
+    - setuptools
     - cython
     - setuptools-scm
   run:
