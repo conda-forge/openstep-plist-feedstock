@@ -1,5 +1,5 @@
 {% set name = "openstep-plist" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openstep_plist-{{ version }}.tar.gz
-  sha256: 0068304d12cec0fe132c4f9d2077c71bfa4ff43904994fd2a2ca97d5a076338e
+  sha256: 2a0d70ff7a03cce64a727062b64bb2f5c9af9fd4a636aaa4339b6aaa2cf65195
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
