@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: openstep-plist
+  version: "0.5.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/openstep_plist-${{ version }}.tar.gz
+  sha256: 2a0d70ff7a03cce64a727062b64bb2f5c9af9fd4a636aaa4339b6aaa2cf65195
+
+build:
+  number: 1
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - cython
+  host:
+    - pip
+    - python
+    - setuptools
+    - cython
+    - setuptools-scm
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - openstep_plist
+      pip_check: true
+
+about:
+  summary: ASCII plist parser written in Cython
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/fonttools/openstep-plist
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
